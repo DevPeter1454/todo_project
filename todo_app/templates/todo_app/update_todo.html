@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update To-Do</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-4">Update To-Do</h1>
+        <form action="{% url 'update_todo' todo_item.id %}" method="POST" class="mb-4">
+            {% csrf_token %}
+            <input type="text" name="title" value="{{ todo_item.title }}" class="border rounded p-2 mr-2">
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Update</button>
+        </form>
+        <a href="{% url 'index' %}" class="bg-gray-500 text-white p-2 rounded">Back to To-Do List</a>
+    </div>
+</body>
+</html>
